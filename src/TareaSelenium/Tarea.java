@@ -148,19 +148,19 @@ public class Tarea {
                         fecha.add("20/06/2022");
                     }
                     break;
-                //profesor.domingo@gmail.com
                }
         }
 
         XSSFSheet hoja = workbook.createSheet("Hoja 2");
 
         Map<String, Object[]> datos = new TreeMap<>();
-        int in = 0;
         for(int i = 0; i < 200; i++) {
             datos.put(Integer.toString(i),
-                    new Object[]{apellidos.get(i), nombres.get(i),edad.get(i),sexo.get(i),situacion.get(i),
-                    ciclo.get(i),grado.get(i), direccion.get(i),telefono.get(i),fecha.get(i), matricula.get(i)});
-            in++;
+                    new Object[]{
+                        apellidos.get(i), nombres.get(i),edad.get(i),sexo.get(i),situacion.get(i),
+                        ciclo.get(i),grado.get(i), direccion.get(i),telefono.get(i),fecha.get(i),
+                         matricula.get(i)
+                         });
         }
 
         Set<String> keyset = datos.keySet();
@@ -168,15 +168,15 @@ public class Tarea {
         int rownum = 0;
 
         for (String key : keyset) {
-            Row frow = hoja.createRow(rownum++);
+            Row filerow = hoja.createRow(rownum++);
+            int cellnum = 0;
 
             Object[] objArr = datos.get(key);
 
-            int cellnum = 0;
 
             for (Object obj : objArr) {
 
-                Cell cell = frow.createCell(cellnum++);
+                Cell cell = filerow.createCell(cellnum++);
 
                 cell.setCellValue((String) obj);
 
@@ -202,7 +202,6 @@ public class Tarea {
         FileOutputStream out = new FileOutputStream(ExcelPath);
         workbook.write(out);
 
-      // fill(drive, info);
         info.clear();
 
         workbook.close();
@@ -211,45 +210,44 @@ public class Tarea {
         drive.close();
     }
 
-    //Page fill
-    public static void fill(WebDriver dr, ArrayList<String> list){
+    public static void fill(WebDriver driver, ArrayList<String> list){
         WebElement d;
 
-        Select edad = new Select(dr.findElement(By.id("edad")));
-        Select situacion = new Select(dr.findElement(By.id("situacion")));
+        Select edad = new Select(driver.findElement(By.id("edad")));
+        Select situacion = new Select(driver.findElement(By.id("situacion")));
 
-        Select ciclo = new Select(dr.findElement(By.id("ciclo")));
-        Select grado = new Select(dr.findElement(By.id("grado")));
+        Select ciclo = new Select(driver.findElement(By.id("ciclo")));
+        Select grado = new Select(driver.findElement(By.id("grado")));
 
         for(int  i = 9; i < list.size();i+=9){
-            d = dr.findElement(By.id("apellido"));
-            d.sendKeys(list.get(i));
+            element = driver.findElement(By.id("apellido"));
+            element.sendKeys(list.get(i));
 
-            d = dr.findElement(By.id("nombre"));
-            d.sendKeys(list.get(i+1));
+            element = driver.findElement(By.id("nombre"));
+            element.sendKeys(list.get(i+1));
 
             edad.selectByVisibleText(list.get(i+2));
 
             if(list.get(i+3).charAt(0) == 'M'){
-                d = dr.findElement(By.id("masculino"));
-                d.click();
+                element = driver.findElement(By.id("masculino"));
+                element.click();
             }else{
-                d = dr.findElement(By.id("femenino"));
-                d.click();
+                element = driver.findElement(By.id("femenino"));
+                element.click();
             }
             situacion.selectByVisibleText(list.get(i+4));
 
             ciclo.selectByVisibleText(list.get(i+5));
             grado.selectByVisibleText(list.get(i+6));
 
-            d = dr.findElement(By.id("direccion"));
-            d.sendKeys(list.get(i+7));
+            element = driver.findElement(By.id("direccion"));
+            element.sendKeys(list.get(i+7));
 
-            d = dr.findElement(By.id("telefono"));
-            d.sendKeys(list.get(i+8));
+            element = driver.findElement(By.id("telefono"));
+            element.sendKeys(list.get(i+8));
 
-            d = dr.findElement(By.id("botton"));
-            d.click();
+            element = driver.findElement(By.id("botton"));
+            element.click();
         }
 
     }
