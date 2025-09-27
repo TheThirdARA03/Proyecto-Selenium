@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    
+</head>
+<body>
+    <section class="d-flex justify-content-center align-items-center">
+        <div class="card shadow col-xs-12 col-sm-6 col-md-6 col-lg-4   p-4"> 
+            <div class="mb-4 d-flex justify-content-start align-items-center">
+              
+                <h4>  <i class="bi "></i> Formulario Escuela Los Santos</h4>
+            </div>
+            <div class="mb-1">
+                <form id = "contacto" >
+                    <div class="mb-4 d-flex justify-content-between"> 
+                        <div>
+                            <label for="nombre"> <i class="bi bi-person-fill"></i> Nombre</label>
+                            <input type="text" class="form-control" name="nombre" id="nombre" placeholder= "Nombre" required>
+                            <div class="nombre text-danger "></div>
+                        </div>
+                        <div >
+                            <label for="apellido"> <i class="bi bi-person-bounding-box"></i> Apellidos</label>
+                            <input type="text" class="form-control" name="apellido" id="apellido" placeholder= "Apellidos" required>
+                            <div class="apellido text-danger"></div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                      <div>
+                        <label for="edad"><i class="bi bi-emoji-smile"></i> Edad</label>
+                        <select name="edad" id="edad" class="form-select">
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="sexo"><i class="bi bi-gender-ambiguous"></i> Sexo: </label>
+                        <input type="radio" class="form-check-input" id="masculino" name="sexo"  value="masculino" > Masculino
+                        <input type="radio" class="form-check-input" id="femenino" name="sexo"  value="femenino" > Femenino
+                        <div class="sexo text-danger"></div>
+                    </div>  
+                    <div class="mb-4">
+                      <label for="situacion"><i class="bi bi-exclamation"></i> situacion academica</label>
+                      <select name="situacion" id="situacion" class="form-select">
+                        <option value="nuevo">Nuevo Ingreso</option>
+                        <option value="aprobado">Aprobado</option>
+                        <option value="reprobado">Reprobado</option>
+                        <option value="tranferido">Transferido</option>
+                      </select>
+                    </div>
+                    <div class="mb-4">
+                      <div class="row">
+                        <div class="col-sm-5">
+                          <label for="ciclo"><i class="bi bi-grid"></i> Ciclo:</label>
+                          <select name="ciclo" id="ciclo" class="form-select">
+                            <option value="pciclo">Primer Ciclo</option>
+                            <option value="sciclo">Segundo Ciclo</option>
+                          </select>
+                        </div>
+                        <div class="col-sm-4">
+                        <label for="grado"><i class="bi bi-grid-fill"></i> Grado:</label>
+                        <select name="grado" id="grado" class="form-select">
+                          <option value="primero">Primero</option>
+                          <option value="segundo">Segundo</option>
+                          <option value="Tercero">Tercero</option>
+                          <option value="Cuarto">Cuarto</option>
+                          <option value="quinto">Quinto</option>
+                          <option value="sexto">Sexto</option>
+                        </select>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <div>
+                        <label for="direccion"> <i class="bi bi-pin-map-fill"></i> Dirección</label>
+                        <input type="text" class="form-control" name="direccion" id="direccion" placeholder= "Dirección" required>
+                        <div class="nombre text-danger "></div>
+                    </div>
+                    </div>
+                    <div class="mb-4">
+                      <div>
+                        <label for="telefono"> <i class="bi bi-telephone-fill"></i> Télefono</label>
+                        <input type="text" class="form-control" name="telefono" id="telefono" placeholder= "809-000-0000" required>
+                        <div class="nombre text-danger "></div>
+                    </div>
+                    </div>
+                    <div class="mb-2">
+                        <button id ="botton" type="reset" class="col-12 btn btn-success d-flex justify-content-between ">
+                            <span>Guardar </span><i id="icono" class="bi bi-files "></i>
+                        </button>
+                    </div> 
+                              
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
